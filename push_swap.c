@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	main(int ac, char *av[])
 {
-<<<<<<< HEAD
 	//test your atoi something is wrong
 	printf("1: %ld\n", ps_atoi("1"));
 	printf("8: %ld\n", ps_atoi("8"));
@@ -48,7 +48,6 @@ int	main(int ac, char *av[])
 	{
 		ft_printf("duplicate detected\n");
 		exit(0);
-=======
 	t_stack		*stack_a;
 	t_operation	*moves;
 
@@ -58,7 +57,6 @@ int	main(int ac, char *av[])
 	{
 		ft_printf("Error.\n");
 		exit(1);
->>>>>>> origin
 	}
 	apply_index(stack_a);
 	radix_sort(&stack_a, moves);
@@ -66,4 +64,5 @@ int	main(int ac, char *av[])
 	show_moves(moves);
 	free_stack(&stack_a);
 	free(moves);
+	}
 }
