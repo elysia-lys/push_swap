@@ -18,7 +18,7 @@
 # include <unistd.h>
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
-# define NOT_INT 6767676767
+# define NOT_INT 6767676767l
 // # define TRUE 1
 // # define FALSE 0
 
@@ -51,6 +51,14 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+typedef struct s_medium
+{
+	t_stack		**a;
+	t_stack		**b;
+	t_operation	*moves;
+	int			start;
+	int			end;
+}					t_medium;
 /* Stack operations */
 void	swap_a(t_stack **a, t_operation *moves);
 void	swap_b(t_stack **b, t_operation *moves);
@@ -86,5 +94,7 @@ t_stack	*build_stack(int ac, char *av[]);
 void	apply_index(t_stack *stack);
 t_bool	is_sorted(t_stack *stack);
 void	selection_sort(t_stack **stack_a, t_operation *moves);
+
+void	medium_sort(t_stack **a, t_stack **b);
 
 #endif
