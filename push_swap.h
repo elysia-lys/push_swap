@@ -6,7 +6,7 @@
 /*   By: zetan <zetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/24 17:36:47 by zetan             #+#    #+#             */
-/*   Updated: 2026/09/01 18:41:08 by zetan            ###   ########.fr       */
+/*   Updated: 2026/09/05 19:02:04 by zetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,18 @@ void	show_stack(t_stack *stack_a);
 void	show_index(t_stack *stack_a);
 void	show_moves(t_operation *moves);
 
+/* build stack */
 t_stack	*build_stack(int ac, char *av[]);
+void	free_stack(t_stack **stack);
+t_stack	*add_to_stack(char **ptr, t_stack *stack_a);
+
+/* pre-sorting */
 void	apply_index(t_stack *stack);
 t_bool	is_sorted(t_stack *stack);
+
+/* sorting algorithms */
 void	selection_sort(t_stack **stack_a, t_operation *moves);
+void	radix_sort(t_stack **stack_a, t_operation *moves);
 
 void	medium_sort(t_stack **a, t_stack **b);
 

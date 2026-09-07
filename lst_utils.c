@@ -6,7 +6,7 @@
 /*   By: zetan <zetan@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 16:55:24 by zetan             #+#    #+#             */
-/*   Updated: 2026/08/30 18:28:28 by zetan            ###   ########.fr       */
+/*   Updated: 2026/09/02 18:15:53 by zetan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@ void	ps_lstadd_front(t_stack **lst, t_stack *new)
 {
 	if (!lst || !new)
 		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
 	new->next = *lst;
 	*lst = new;
 }
