@@ -34,10 +34,8 @@ t_bool	check_duplicate(t_stack *stack)
 
 t_bool	check_integer(char *ptr)
 {
-	int	i;
 	long	num;
 
-	i = 0;
 	num = ps_atoi(ptr);
 	if (num == NOT_INT)
 		return (FALSE);

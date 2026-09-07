@@ -17,20 +17,19 @@ static int	has_chunk(t_stack *a, int start, int end)
 	while (a)
 	{
 		if (a->index >= start && a->index < end)
+		{
 			return (1);
+		}
 		a = a->next;
 	}
 	return (0);
 }
-
 static void	push_chunk(t_medium *m)
 {
 	while (has_chunk(*m->a, m->start, m->end))
 	{
 		if ((*m->a)->index >= m->start && (*m->a)->index < m->end)
-		{
 			push_b(m->a, m->b, m->moves);
-		}
 		else
 			rotate_a(m->a, m->moves);
 	}
@@ -72,22 +71,22 @@ static void	push_max(t_medium *m)
 	push_a(m->a, m->b, m->moves);
 }
 
-void	medium_sort(t_stack **a, t_stack **b)
+void	medium_sort(t_stack **a, t_operation *moves)
 {
-	t_operation	moves;
 	t_medium	m;
+	t_stack	*b;
 	int			size;
 	int			chunk_size;
 
-	moves = (t_operation){0};
+	b = NULL;
+	m.b = &b;
 	size = ps_lstsize(*a);
 	chunk_size = 1;
 	while (chunk_size * chunk_size <= size)
 		chunk_size++;
 	chunk_size--;
 	m.a = a;
-	m.b = b;
-	m.moves = &moves;
+	m.moves = moves;
 	m.start = 0;
 	m.end = chunk_size;
 	while (m.start < size)
@@ -96,6 +95,8 @@ void	medium_sort(t_stack **a, t_stack **b)
 		m.start = m.end;
 		m.end += chunk_size;
 	}
-	while (*b)
+	while (*m.b)
+	{
 		push_max(&m);
+	}
 }

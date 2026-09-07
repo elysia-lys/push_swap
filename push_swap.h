@@ -103,6 +103,6 @@ t_bool	is_sorted(t_stack *stack);
 void	selection_sort(t_stack **stack_a, t_operation *moves);
 void	radix_sort(t_stack **stack_a, t_operation *moves);
 
-void	medium_sort(t_stack **a, t_stack **b);
+void	medium_sort(t_stack **a, t_operation *moves);
 
 #endif
