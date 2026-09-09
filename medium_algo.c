@@ -24,6 +24,7 @@ static int	has_chunk(t_stack *a, int start, int end)
 	}
 	return (0);
 }
+
 static void	push_chunk(t_medium *m)
 {
 	while (has_chunk(*m->a, m->start, m->end))
@@ -74,7 +75,7 @@ static void	push_max(t_medium *m)
 void	medium_sort(t_stack **a, t_operation *moves)
 {
 	t_medium	m;
-	t_stack	*b;
+	t_stack		*b;
 	int			size;
 	int			chunk_size;
 
@@ -96,7 +97,5 @@ void	medium_sort(t_stack **a, t_operation *moves)
 		m.end += chunk_size;
 	}
 	while (*m.b)
-	{
 		push_max(&m);
-	}
 }

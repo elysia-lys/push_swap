@@ -16,6 +16,7 @@ int	main(int ac, char *av[])
 {
 	t_stack		*stack_a;
 	t_operation	*moves;
+	t_stack		*tmp;
 
 	moves = ft_calloc(1, sizeof(t_operation));
 	stack_a = build_stack(ac, av);
@@ -25,12 +26,10 @@ int	main(int ac, char *av[])
 		exit(1);
 	}
 	apply_index(stack_a);
-	t_stack	*tmp;
-
 	tmp = stack_a;
 	while (tmp)
 	{
-		ft_printf("num=%d index=%d\n", tmp->num, tmp->index);
+		ft_printf("num=%f index=%d\n", tmp->num, tmp->index);
 		tmp = tmp->next;
 	}
 	show_stack(stack_a);
