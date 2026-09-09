@@ -105,4 +105,7 @@ void	radix_sort(t_stack **stack_a, t_operation *moves);
 void	medium_sort(t_stack **a, t_operation *moves);
 void	custom_algo(t_stack **a, t_operation *moves);
 
+/* putfloat */
+void	ft_putdouble(double n);
+
 #endif

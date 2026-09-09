@@ -38,6 +38,39 @@ static double	calculate_disorder(t_stack *stack)
 	return ((double)count / max);
 }
 
+static void	put_decimal(long decimal)
+{
+	if (decimal < 100000000)
+		ft_putchar_fd('0', 1);
+	if (decimal < 10000000)
+		ft_putchar_fd('0', 1);
+	if (decimal < 1000000)
+		ft_putchar_fd('0', 1);
+	if (decimal < 100000)
+		ft_putchar_fd('0', 1);
+	if (decimal < 10000)
+		ft_putchar_fd('0', 1);
+	if (decimal < 1000)
+		ft_putchar_fd('0', 1);
+	if (decimal < 100)
+		ft_putchar_fd('0', 1);
+	if (decimal < 10)
+		ft_putchar_fd('0', 1);
+	ft_putnbr_fd(decimal, 1);
+}
+
+void	ft_putdouble(double n)
+{
+	int		whole;
+	long	decimal;
+
+	whole = (int)n;
+	decimal = (long)((n - whole) * 1000000000 + 0.5);
+	ft_putnbr_fd(whole, 1);
+	ft_putchar_fd('.', 1);
+	put_decimal(decimal);
+}
+
 void	custom_algo(t_stack **a, t_operation *moves)
 {
 	double	disorder;
@@ -46,18 +79,9 @@ void	custom_algo(t_stack **a, t_operation *moves)
 		return ;
 	disorder = calculate_disorder(*a);
 	if (disorder < 0.2)
-	{
 		selection_sort(a, moves);
-		ft_printf("SIMPLE SORT\n");
-	}
 	else if (disorder < 0.5)
-	{
 		medium_sort(a, moves);
-		ft_printf("MEDIUM SORT\n");
-	}
 	else
-	{
 		radix_sort(a, moves);
-		ft_printf("COMPLEX SORT\n");
-	}
 }
