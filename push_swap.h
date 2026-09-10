@@ -91,7 +91,7 @@ void	show_index(t_stack *stack_a);
 void	show_moves(t_operation *moves);
 
 /* build stack */
-t_stack	*build_stack(int ac, char *av[]);
+t_stack	*build_stack(int ac, char *av[], int start);
 void	free_stack(t_stack **stack);
 t_stack	*add_to_stack(char **ptr, t_stack *stack_a);
 
@@ -105,7 +105,7 @@ void	radix_sort(t_stack **stack_a, t_operation *moves);
 void	medium_sort(t_stack **a, t_operation *moves);
 void	custom_algo(t_stack **a, t_operation *moves);
 
-/* putfloat */
 void	ft_putdouble(double n);
+int	call_flag(int ac, char **av, t_stack **a, t_operation *moves);
 
 #endif

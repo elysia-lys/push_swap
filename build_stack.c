@@ -15,15 +15,15 @@
 static	void free_split(char **split);
 t_stack	*add_to_stack(char **ptr, t_stack *stack_a);
 
-t_stack	*build_stack(int ac, char *av[])
+t_stack	*build_stack(int ac, char *av[], int start)
 {
 	t_stack	*stack_a;
 	char	**split_args;
 
 	stack_a = NULL;
-	if (ac < 2)
+	if (ac <= start)
 		return (NULL);
-	while (ac > 1)
+	while (ac > start)
 	{
 		split_args = ft_split(av[ac - 1], ' ');
 		stack_a = add_to_stack(split_args, stack_a);

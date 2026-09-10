@@ -12,30 +12,20 @@
 
 #include "push_swap.h"
 
-int	main(int ac, char *av[])
+int	main(int ac, char **av)
 {
 	t_stack		*stack_a;
 	t_operation	*moves;
-	t_stack		*tmp;
 
+	if (ac == 1)
+		return (0);
 	moves = ft_calloc(1, sizeof(t_operation));
-	stack_a = build_stack(ac, av);
-	if (!stack_a || check_duplicate(stack_a) == TRUE)
+	if (!call_flag(ac, av, &stack_a, moves))
 	{
-		ft_printf("Error.\n");
-		exit(1);
+		free(moves);
+		return (1);
 	}
-	apply_index(stack_a);
-	tmp = stack_a;
-	while (tmp)
-	{
-		ft_printf("num=%f index=%d\n", tmp->num, tmp->index);
-		tmp = tmp->next;
-	}
-	show_stack(stack_a);
-	medium_sort(&stack_a, moves);
-	show_stack(stack_a);
-	show_moves(moves);
 	free_stack(&stack_a);
 	free(moves);
+	return (0);
 }
