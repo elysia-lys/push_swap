@@ -16,28 +16,14 @@ basically sometimes no need to print out the operations */
 
 void	push_a(t_stack **a, t_stack **b, t_operation *moves)
 {
-	t_stack	*node;
-
-	if (!a || !b || !*b)
-		return ;
-	node = *b;
-	*b = (*b)->next;
-	node->next = *a;
-	*a = node;
+	push_a_np(a, b);
 	moves->pa += 1;
 	ft_printf("pa\n");
 }
 
 void	push_b(t_stack **a, t_stack **b, t_operation *moves)
 {
-	t_stack	*node;
-
-	if (!b || !a || !*a)
-		return ;
-	node = *a;
-	*a = (*a)->next;
-	node->next = *b;
-	*b = node;
+	push_b_np(a, b);
 	moves->pb += 1;
 	ft_printf("pb\n");
 }

@@ -12,81 +12,23 @@
 
 #include "push_swap.h"
 
-static void	sub_reverse_rotate_a(t_stack **a);
-static void	sub_reverse_rotate_b(t_stack **b);
-
 void	reverse_rotate_a(t_stack **a, t_operation *moves)
 {
-	t_stack	*second_last;
-	t_stack	*last;
-
-	if (!a || !(*a) || !(*a)->next)
-		return ;
-	second_last = *a;
-	while (second_last->next->next)
-		second_last = second_last->next;
-	last = second_last->next;
-	last->next = *a;
-	second_last->next = NULL;
-	*a = last;
+	reverse_rotate_a_np(a);
 	moves->rra += 1;
 	ft_printf("rra\n");
 }
 
 void	reverse_rotate_b(t_stack **b, t_operation *moves)
 {
-	t_stack	*second_last;
-	t_stack	*last;
-
-	if (!b || !(*b) || !(*b)->next)
-		return ;
-	second_last = *b;
-	while (second_last->next->next)
-		second_last = second_last->next;
-	last = second_last->next;
-	last->next = *b;
-	second_last->next = NULL;
-	*b = last;
+	reverse_rotate_b_np(b);
 	moves->rrb += 1;
 	ft_printf("rrb\n");
 }
 
 void	reverse_rotate_r(t_stack **a, t_stack **b, t_operation *moves)
 {
-	sub_reverse_rotate_a(a);
-	sub_reverse_rotate_b(b);
+	reverse_rotate_r_np(a, b);
 	moves->rrr += 1;
 	ft_printf("rrr\n");
-}
-
-static void	sub_reverse_rotate_a(t_stack **a)
-{
-	t_stack	*second_last;
-	t_stack	*last;
-
-	if (!a || !(*a) || !(*a)->next)
-		return ;
-	second_last = *a;
-	while (second_last->next->next)
-		second_last = second_last->next;
-	last = second_last->next;
-	last->next = *a;
-	second_last->next = NULL;
-	*a = last;
-}
-
-static void	sub_reverse_rotate_b(t_stack **b)
-{
-	t_stack	*second_last;
-	t_stack	*last;
-
-	if (!b || !(*b) || !(*b)->next)
-		return ;
-	second_last = *b;
-	while (second_last->next->next)
-		second_last = second_last->next;
-	last = second_last->next;
-	last->next = *b;
-	second_last->next = NULL;
-	*b = last;
 }

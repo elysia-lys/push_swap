@@ -12,81 +12,23 @@
 
 #include "push_swap.h"
 
-static void	sub_rotate_a(t_stack **a);
-static void	sub_rotate_b(t_stack **b);
-
 void	rotate_a(t_stack **a, t_operation *moves)
 {
-	t_stack	*first_node;
-	t_stack	*last_node;
-	t_stack	*newlast_node;
-
-	if (!a || !*a || !(*a)->next)
-		return ;
-	newlast_node = *a;
-	first_node = (*a)->next;
-	last_node = ps_lstlast(*a);
-	last_node->next = *a;
-	newlast_node->next = NULL;
-	*a = first_node;
+	rotate_a_np(a);
 	moves->ra += 1;
 	ft_printf("ra\n");
 }
 
 void	rotate_b(t_stack **b, t_operation *moves)
 {
-	t_stack	*first_node;
-	t_stack	*last_node;
-	t_stack	*newlast_node;
-
-	if (!b || !*b || !(*b)->next)
-		return ;
-	newlast_node = *b;
-	first_node = (*b)->next;
-	last_node = ps_lstlast(*b);
-	last_node->next = *b;
-	newlast_node->next = NULL;
-	*b = first_node;
+	rotate_b_np(b);
 	moves->rb += 1;
 	ft_printf("rb\n");
 }
 
 void	rotate_r(t_stack **a, t_stack **b, t_operation *moves)
 {
-	sub_rotate_a(a);
-	sub_rotate_b(b);
+	rotate_r_np(a, b);
 	moves->rr += 1;
 	ft_printf("rr\n");
-}
-
-static void	sub_rotate_a(t_stack **a)
-{
-	t_stack	*first_node;
-	t_stack	*last_node;
-	t_stack	*newlast_node;
-
-	if (!a || !*a || !(*a)->next)
-		return ;
-	newlast_node = *a;
-	first_node = (*a)->next;
-	last_node = ps_lstlast(*a);
-	last_node->next = *a;
-	newlast_node->next = NULL;
-	*a = first_node;
-}
-
-static void	sub_rotate_b(t_stack **b)
-{
-	t_stack	*first_node;
-	t_stack	*last_node;
-	t_stack	*newlast_node;
-
-	if (!b || !*b || !(*b)->next)
-		return ;
-	newlast_node = *b;
-	first_node = (*b)->next;
-	last_node = ps_lstlast(*b);
-	last_node->next = *b;
-	newlast_node->next = NULL;
-	*b = first_node;
 }

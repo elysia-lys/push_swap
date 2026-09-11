@@ -72,6 +72,18 @@ void	reverse_rotate_a(t_stack **a, t_operation *moves);
 void	reverse_rotate_b(t_stack **b, t_operation *moves);
 void	reverse_rotate_r(t_stack **a, t_stack **b, t_operation *moves);
 
+void	swap_a_np(t_stack **a);
+void	swap_b_np(t_stack **b);
+void	swap_s_np(t_stack **a, t_stack **b);
+void	push_a_np(t_stack **a, t_stack **b);
+void	push_b_np(t_stack **a, t_stack **b);
+void	rotate_a_np(t_stack **a);
+void	rotate_b_np(t_stack **b);
+void	rotate_r_np(t_stack **a, t_stack **b);
+void	reverse_rotate_a_np(t_stack **a);
+void	reverse_rotate_b_np(t_stack **b);
+void	reverse_rotate_r_np(t_stack **a, t_stack **b);
+
 /* error stuff & checking */
 long	ps_atoi(const char *nptr);
 t_bool	check_integer(char *ptr);
