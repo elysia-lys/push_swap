@@ -52,12 +52,8 @@ static int	parse_flags(int ac, char **av, char **strategy, int *bench)
 	}
 	return (i);
 }
-static void	has_bench()
-{
-	ft_putstr_fd("BENCH HERE\n", 2);
-}
 
-static void	run_strategy(t_stack **a, t_operation *moves, char *strategy)
+void	run_strategy(t_stack **a, t_operation *moves, char *strategy)
 {
 	if (!strategy)
 		custom_algo(a, moves);
@@ -92,8 +88,9 @@ int	call_flag(int ac, char **av, t_stack **a, t_operation *moves)
 		return (0);
 	}
 	apply_index(*a);
-	run_strategy(a, moves, strategy);
 	if (bench)
-		has_bench();
+		benchmark(a, moves, strategy);
+	else
+		run_strategy(a, moves, strategy);
 	return (1);
 }

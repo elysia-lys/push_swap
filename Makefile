@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = push_swap.c show_stack.c error_handling.c lst_utils.c	\
 	   pre_sort.c reverse_rotate.c rotate_stack.c swap_stack.c	\
 	    medium_algo.c check_stack.c simple_algo.c push_stack.c build_stack.c	\
-	   complex_algo.c custom_algo.c flag_parsing.c
+	   complex_algo.c custom_algo.c flag_parsing.c benchmark.c
 
 OBJS = $(SRCS:.c=.o)
 

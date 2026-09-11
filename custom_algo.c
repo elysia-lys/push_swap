@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static double	calculate_disorder(t_stack *stack)
+double	calculate_disorder(t_stack *stack)
 {
 	t_stack	*tmp;
 	t_stack	*compare;
@@ -40,23 +40,11 @@ static double	calculate_disorder(t_stack *stack)
 
 static void	put_decimal(long decimal)
 {
-	if (decimal < 100000000)
-		ft_putchar_fd('0', 1);
-	if (decimal < 10000000)
-		ft_putchar_fd('0', 1);
-	if (decimal < 1000000)
-		ft_putchar_fd('0', 1);
-	if (decimal < 100000)
-		ft_putchar_fd('0', 1);
-	if (decimal < 10000)
-		ft_putchar_fd('0', 1);
-	if (decimal < 1000)
-		ft_putchar_fd('0', 1);
 	if (decimal < 100)
-		ft_putchar_fd('0', 1);
+		ft_putchar_fd('0', 2);
 	if (decimal < 10)
-		ft_putchar_fd('0', 1);
-	ft_putnbr_fd(decimal, 1);
+		ft_putchar_fd('0', 2);
+	ft_putnbr_fd(decimal, 2);
 }
 
 void	ft_putdouble(double n)
@@ -65,9 +53,9 @@ void	ft_putdouble(double n)
 	long	decimal;
 
 	whole = (int)n;
-	decimal = (long)((n - whole) * 1000000000 + 0.5);
-	ft_putnbr_fd(whole, 1);
-	ft_putchar_fd('.', 1);
+	decimal = (long)((n - whole) * 1000 + 0.5);
+	ft_putnbr_fd(whole, 2);
+	ft_putchar_fd('.', 2);
 	put_decimal(decimal);
 }
 

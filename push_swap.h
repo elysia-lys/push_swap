@@ -106,6 +106,9 @@ void	medium_sort(t_stack **a, t_operation *moves);
 void	custom_algo(t_stack **a, t_operation *moves);
 
 void	ft_putdouble(double n);
-int	call_flag(int ac, char **av, t_stack **a, t_operation *moves);
+int		call_flag(int ac, char **av, t_stack **a, t_operation *moves);
+double	calculate_disorder(t_stack *stack);
+void	run_strategy(t_stack **a, t_operation *moves, char *strategy);
+void	benchmark(t_stack **a, t_operation *moves, char *strategy);
 
 #endif
