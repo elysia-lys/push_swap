@@ -38,25 +38,20 @@ double	calculate_disorder(t_stack *stack)
 	return ((double)count / max);
 }
 
-static void	put_decimal(long decimal)
-{
-	if (decimal < 100)
-		ft_putchar_fd('0', 2);
-	if (decimal < 10)
-		ft_putchar_fd('0', 2);
-	ft_putnbr_fd(decimal, 2);
-}
-
 void	ft_putdouble(double n)
 {
 	int		whole;
-	long	decimal;
+	int	decimal;
 
+	n *= 100;
 	whole = (int)n;
-	decimal = (long)((n - whole) * 1000 + 0.5);
+	decimal = (int)((n - whole) * 100 + 0.5);
 	ft_putnbr_fd(whole, 2);
 	ft_putchar_fd('.', 2);
-	put_decimal(decimal);
+	if (decimal < 10)
+		ft_putchar_fd('0', 2);
+	ft_putnbr_fd(decimal, 2);
+	ft_putchar_fd('%', 2);
 }
 
 void	custom_algo(t_stack **a, t_operation *moves)
