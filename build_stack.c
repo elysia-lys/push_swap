@@ -43,7 +43,7 @@ t_stack	*add_to_stack(char **ptr, t_stack *stack_a)
 
 	i = 0;
 	while (ptr[i])
-			i++;
+		i++;
 	while (i > 0)
 	{
 		i--;
@@ -62,31 +62,31 @@ t_stack	*add_to_stack(char **ptr, t_stack *stack_a)
 	return (stack_a);
 }
 
-void free_stack(t_stack **stack)
+void	free_stack(t_stack **stack)
 {
-    t_stack *tmp;
+    t_stack	*tmp;
 
     if (!stack || !*stack)
-        return ;
+	return ;
     while (*stack)
-    {
-        tmp = (*stack)->next;
-        free(*stack);
-        *stack = tmp;
-    }
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
 }
 
-static void free_split(char **split)
+static void	free_split(char **split)
 {
-    int i;
+    int	i;
 
     i = 0;
     if (!split)
-        return ;
+	    return ;
     while (split[i])
     {
-        free(split[i]);
-        i++;
+	    free(split[i]);
+	    i++;
     }
     free(split);
 }

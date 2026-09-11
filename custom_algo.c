@@ -40,7 +40,7 @@ double	calculate_disorder(t_stack *stack)
 
 void	ft_putdouble(double n)
 {
-	int		whole;
+	int	whole;
 	int	decimal;
 
 	n *= 100;

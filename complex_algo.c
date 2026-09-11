@@ -47,7 +47,7 @@ void	radix_sort(t_stack **stack_a, t_operation *moves)
 
 static int	get_largest_bit(t_stack **stack_a)
 {
-	t_stack *current;
+	t_stack	*current;
 	int		largest_index;
 	int		max_bits;
 

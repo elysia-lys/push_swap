@@ -18,7 +18,7 @@ static void	sub_reverse_rotate_b(t_stack **b);
 void	reverse_rotate_a(t_stack **a, t_operation *moves)
 {
 	t_stack	*second_last;
-	t_stack *last;
+	t_stack	*last;
 
 	if (!a || !(*a) || !(*a)->next)
 		return ;
@@ -36,7 +36,7 @@ void	reverse_rotate_a(t_stack **a, t_operation *moves)
 void	reverse_rotate_b(t_stack **b, t_operation *moves)
 {
 	t_stack	*second_last;
-	t_stack *last;
+	t_stack	*last;
 
 	if (!b || !(*b) || !(*b)->next)
 		return ;
@@ -62,7 +62,7 @@ void	reverse_rotate_r(t_stack **a, t_stack **b, t_operation *moves)
 static void	sub_reverse_rotate_a(t_stack **a)
 {
 	t_stack	*second_last;
-	t_stack *last;
+	t_stack	*last;
 
 	if (!a || !(*a) || !(*a)->next)
 		return ;
@@ -78,7 +78,7 @@ static void	sub_reverse_rotate_a(t_stack **a)
 static void	sub_reverse_rotate_b(t_stack **b)
 {
 	t_stack	*second_last;
-	t_stack *last;
+	t_stack	*last;
 
 	if (!b || !(*b) || !(*b)->next)
 		return ;

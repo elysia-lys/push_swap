@@ -59,7 +59,6 @@ void	sort_three(t_stack **stack_a, t_operation *moves)
 	first = (*stack_a)->index;
 	second = (*stack_a)->next->index;
 	third = (*stack_a)->next->next->index;
-
 	if (first > second && second < third && first < third)
 		swap_a(stack_a, moves);
 	if (first > second && second > third)
